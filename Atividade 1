@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfólio de Diogo Santos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+   <header>
+        <h1>Portfólio de Diogo Santos</h1>
+        <p>Analista de Sistemas | Megasult</p>
+    </header>
+
+   <section class="sobre">
+        <h2>Sobre Mim</h2>
+        <p><strong>Nome:</strong> Diogo Santos</p>
+        <p><strong>Idade:</strong> 23 anos</p>
+        <p><strong>Altura:</strong> 1,68 m</p>
+        <p><strong>Profissão:</strong> Analista de Sistemas na Megasult</p>
+        <p><strong>Experiência:</strong> Completando 1 ano de experiência na empresa Megasult, onde utilizo SQL e Banco de Dados.</p>
+        <p><strong>Objetivos:</strong> Busco sempre aprender mais e almejo crescer dentro da empresa.</p>
+        <p><strong>Formação:</strong> Estou no 4º período do curso de Análise e Desenvolvimento de Sistemas na universidade Unipar.</p>
+    </section>
+
+   <section class="habilidades">
+        <h2>Habilidades Técnicas</h2>
+        <ul>
+            <li><strong>Linguagens de Programação:</strong> Java, Python, C#, SQL</li>
+            <li><strong>Ferramentas e Tecnologias:</strong> MySQL, PostgreSQL, SQL Server, Git, Docker</li>
+            <li><strong>Frameworks:</strong> Spring Boot, React, Node.js</li>
+        </ul>
+    </section>
+
+   <section class="projetos">
+        <h2>Projetos</h2>
+        <ul>
+            <li><strong>Projeto 1:</strong> Sistema de gerenciamento de vendas utilizando banco de dados SQL.</li>
+            <li><strong>Projeto 2:</strong> Aplicação web para acompanhamento de tarefas. </li>
+        </ul>
+    </section>
+
+  <section class="objetivos">
+        <h2>Objetivos de Carreira</h2>
+        <p><strong>Curto Prazo:</strong> Aperfeiçoar minhas habilidades em SQL e obter uma certificação em Banco de Dados.</p>
+        <p><strong>Longo Prazo:</strong> Tornar-me líder de equipe ou gerente de projetos na área de TI.</p>
+    </section>
+
+  <footer>
+       <p>&copy; 2025 Diogo Santos - Todos os direitos reservados.</p>
+        <p><strong>Contato:</strong> diogo.santos@gmail.com | <a href="https://www.linkedin.com/in/diogosantos" target="_blank">LinkedIn</a> | <a href="https://github.com/diogosantos" target="_blank">GitHub</a></p>
+    </footer>
+
+</body>
+</html>
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0b0b0b;
+    color: #333;
+}
+
+header {
+    background-color: #ffffff;
+    color: rgb(11, 10, 10);
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-top: 5px;
+}
+
+section {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 900px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(255, 255, 255);
+}
+
+section h2 {
+    color: #000000;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+section p, section ul {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+section ul li {
+    margin-bottom: 8px;
+}
+
+footer {
+    text-align: center;
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 5px;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para seções específicas */
+.habilidades ul, .projetos ul, .objetivos p {
+    padding-left: 20px;
+}
+
+/* Estilo para links */
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 1em;
+    }
+
+  header h1 {
+        font-size: 2em;
+    }
+
+   section {
+        width: 90%;
+    }
+
+  footer p {
+        font-size: 0.9em;
+    }
