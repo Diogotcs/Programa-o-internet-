@@ -1,0 +1,169 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #9370DB;
+  font-family: sans-serif;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #9370DB;
+  border-radius: 10px;
+}
+
+.pontos {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.botao-sortear {
+  padding: 10px 20px;
+  background-color: #6A5ACD;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.pergunta {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.numeros {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.numero {
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.operador {
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.resposta {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 200px;
+}
+
+.botao-validar {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.botao-novo-jogo {
+  padding: 10px 20px;
+  background-color: #F44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mensagem {
+  font-size: 16px;
+  margin-top: 10px;
+  color: yellow;
+}
+
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+  const [pontos, setPontos] = useState(0);
+  const [numero1, setNumero1] = useState(Math.floor(Math.random() * 100) + 1);
+  const [numero2, setNumero2] = useState(Math.floor(Math.random() * 100) + 1);
+  const [operador, setOperador] = useState('+'); // Operador inicial
+  const [resposta, setResposta] = useState('');
+  const [mensagem, setMensagem] = useState('');
+
+  const gerarNovoDesafio = () => {
+    setNumero1(Math.floor(Math.random() * 100) + 1);
+    setNumero2(Math.floor(Math.random() * 100) + 1);
+    const operadores = ['+', '-', '*','/'];
+    setOperador(operadores[Math.floor(Math.random() * operadores.length)]);
+    setResposta('');
+    setMensagem('');
+  };
+
+  const validarResposta = () => {
+    const respostaInt = parseInt(resposta);
+    let respostaCorreta;
+    switch (operador) {
+      case '+':
+        respostaCorreta = numero1 + numero2;
+        break;
+      case '-':
+        respostaCorreta = numero1 - numero2;
+        break;
+        case '/':
+        respostaCorreta = numero1 / numero2;
+        break;
+      case '*':
+        respostaCorreta = numero1 * numero2;
+        break;
+      default:
+        respostaCorreta = 0;
+    }
+    if (!isNaN(respostaInt) && respostaInt === respostaCorreta) {
+      setPontos(pontos + 10);
+      setMensagem('Resposta correta!');
+      gerarNovoDesafio();
+    } else {
+      setMensagem('Resposta incorreta.');
+    }
+  };
+
+  const reiniciarJogo = () => {
+    setPontos(0);
+    gerarNovoDesafio();
+  };
+
+  return (
+    <div className="App">
+      <div className="container">
+        <p className="pontos">Você tem {pontos} pontos</p>
+        <button className="botao-sortear" onClick={gerarNovoDesafio}>Sortear Desafio</button>
+        <p className="pergunta">Quanto é:</p>
+        <div className="numeros">
+          <p className="numero">{numero1}</p>
+          <p className="operador">{operador}</p>
+          <p className="numero">{numero2}</p>
+        </div>
+        <input
+          type="number"
+          className="resposta"
+          placeholder="Sua Resposta:"
+          value={resposta}
+          onChange={(e) => setResposta(e.target.value)}
+        />
+        <button className="botao-validar" onClick={validarResposta}>Validar</button>
+        <button className="botao-novo-jogo" onClick={reiniciarJogo}>Novo Jogo</button>
+        {mensagem && <p className="mensagem">{mensagem}</p>}
+      </div>
+    </div>
+  );
+}
+
+export default App;
